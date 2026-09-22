@@ -11,6 +11,10 @@ const option = {
     },
     tags: [
       {
+        name: 'Authentication',
+        description: 'GitHub session authentication',
+      },
+      {
         name: 'Category',
         description: 'Category management operations',
       },
@@ -23,6 +27,31 @@ const option = {
     basePath: '/',
     schemes: ['http'],
     paths: {
+      '/login': {
+        get: {
+          tags: ['Authentication'],
+          summary: 'Sign in with GitHub',
+          description:
+            'Redirects to GitHub. After successful authentication, the browser receives a session cookie.',
+          responses: {
+            302: {
+              description: 'Redirect to GitHub',
+            },
+          },
+        },
+      },
+      '/logout': {
+        get: {
+          tags: ['Authentication'],
+          summary: 'Sign out',
+          description: 'Destroys the current browser session.',
+          responses: {
+            302: {
+              description: 'Redirect to the home page',
+            },
+          },
+        },
+      },
       '/category': {
         get: {
           tags: ['Category'],
