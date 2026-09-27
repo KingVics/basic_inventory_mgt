@@ -108,7 +108,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: 'http://127.0.0.1:5000/github/callback',
+      callbackURL: process.env.NODE === "production" ? `${process.env.GITHUB_CALLBACK}/github/callback` : 'http://127.0.0.1:5000/github/callback',
     },
     function (accessToken, refreshToken, profile, done) {
       process.nextTick(function () {
