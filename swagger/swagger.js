@@ -11,10 +11,6 @@ const option = {
     },
     tags: [
       {
-        name: 'Authentication',
-        description: 'GitHub session authentication',
-      },
-      {
         name: 'Category',
         description: 'Category management operations',
       },
